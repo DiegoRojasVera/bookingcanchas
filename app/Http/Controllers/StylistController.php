@@ -6,7 +6,7 @@ use App\Models\Client;
 use Illuminate\Http\Request;
 use App\Models\Stylist;
 
-class ClientStylist extends Controller
+class StylistController extends Controller
 {
     public function index()
     {
