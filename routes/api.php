@@ -28,8 +28,8 @@ Route::get('client/{stylist}', 'App\Http\Controllers\ClientController@showAll');
 Route::get('clientid/{id}', 'App\Http\Controllers\ClientController@showallID'); // get all client showallID
 Route::delete('clients/{id}', 'App\Http\Controllers\ClientController@destroy');
 
-Route::get('stylist/{id}', 'App\Http\Controllers\ClientStylist@show');
-Route::get('stylist', 'App\Http\Controllers\ClientStylist@index');
+Route::get('stylist/{id}', 'App\Http\Controllers\StylistController@show');
+Route::get('stylist', 'App\Http\Controllers\StylistController@index');
 
 Route::get('service/{id}', 'App\Http\Controllers\ServiceController@show');
 Route::get('service', 'App\Http\Controllers\ServiceController@index');
