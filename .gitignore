@@ -4,11 +4,11 @@
 /public/storage
 /storage/*.key
 #/vendor
-.gitCopia3
-.gitCopia2
+#Procfile
 storage
 .env
 .env.backup
+.githeroku
 .phpunit.result.cache
 Homestead.json
 Homestead.yaml
