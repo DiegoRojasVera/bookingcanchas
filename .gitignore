@@ -5,7 +5,7 @@
 /storage/*.key
 #/vendor
 #Procfile
-storage
+#storage
 .env
 .env.backup
 .githeroku
