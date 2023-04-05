@@ -15,6 +15,31 @@ class StylistController extends Controller
             ->get());
     }
 
+    //Register Stylist
+    public function register(Request $request)
+    {
+        //validate fields
+
+        $attrs = $request->validate([
+            'name' => 'required|string',
+            'photo' => 'string',
+            'phone' => 'required|string',
+            'score' => 'string',
+            
+        ]);
+
+        //create user
+        $user = Stylist::create([
+            'name' => $attrs['name'],
+            'photo' => $attrs['photo'],
+            'phone' => $attrs['phone'],
+            'score' => $attrs['score'],
+            
+        ]);
+
+        
+    }
+
     // get single 
     public function show($id)
     {

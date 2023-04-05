@@ -30,6 +30,7 @@ Route::delete('clients/{id}', 'App\Http\Controllers\ClientController@destroy');
 
 Route::get('stylist/{id}', 'App\Http\Controllers\StylistController@show');
 Route::get('stylist', 'App\Http\Controllers\StylistController@index');
+Route::post('stylist', 'App\Http\Controllers\StylistController@register');
 
 Route::get('service/{id}', 'App\Http\Controllers\ServiceController@show');
 Route::get('service', 'App\Http\Controllers\ServiceController@index');

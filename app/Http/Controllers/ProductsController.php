@@ -6,18 +6,19 @@ use App\Models\Client;
 use Illuminate\Http\Request;
 use App\Models\Products;
 use Illuminate\Support\Facades\Validator;
+
 class ProductsController extends Controller
 {
-   
+
     public function index()
     {
- 
-        
-    $clients = Client::select("clients.*")->get()->toArray();
 
-                return response()->json($clients);
+
+        $clients = Client::select("clients.*")->get()->toArray();
+
+        return response()->json($clients);
     }
-    
+
     /**
      * Store a newly created resource in storage.
      *
@@ -29,13 +30,13 @@ class ProductsController extends Controller
         $input = $request->all();
         $validator = Validator::make($input, [
             'name' => 'required',
-            'email'=> 'require|unique:clients|max:60',
-            'phone'=> 'require',
-            'inicio'=> 'require',
-            'stylist'=> 'require',
-            'service'=> 'require',
+            'email' => 'require|unique:clients|max:60',
+            'phone' => 'require',
+            'inicio' => 'require',
+            'stylist' => 'require',
+            'service' => 'require',
 
-            
+
         ]);
         if ($validator->fails()) {
             return response()->json([
@@ -62,15 +63,15 @@ class ProductsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-     // get single client
-     public function show($email)
-     {
-         return response()
-             ->json(Client::where('email', $email)
-                 ->with('appointments.stylist', 'appointments.service')
-                 ->orderByDesc('inicio', 'DESC')
-                 ->get());
-     }
+    // get single client
+    public function show($email)
+    {
+        return response()
+            ->json(Client::where('email', $email)
+                ->with('appointments.stylist', 'appointments.service')
+                ->orderByDesc('inicio', 'DESC')
+                ->get());
+    }
     // public function show($id)
     // {
     //     $clients = Client::select("clients.*")
@@ -93,11 +94,11 @@ class ProductsController extends Controller
         $input = $request->all();
         $validator = Validator::make($input, [
             'name' => 'required',
-            'email'=> 'require|unique:clients|max:60',
-            'phone'=> 'require',
-            'inicio'=> 'require',
-            'stylist'=> 'require',
-            'service'=> 'require',
+            'email' => 'require|unique:clients|max:60',
+            'phone' => 'require',
+            'inicio' => 'require',
+            'stylist' => 'require',
+            'service' => 'require',
         ]);
         if ($validator->fails()) {
             return response()->json([
@@ -141,8 +142,7 @@ class ProductsController extends Controller
                     "error" => "No se encontro",
                 ]);
             }
-            $clients->delete([
-            ]);
+            $clients->delete([]);
             return response()->json([
                 "ok" => true,
                 "mensaje" => "Se elimino con exito",
