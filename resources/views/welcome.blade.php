@@ -223,23 +223,23 @@
                     <p class="lead">Solo se están recolectando los datos que los clientes carguen en la aplicación
                         como datos personales que son necesarios para registrarse a la aplicación.</p>
                     <p class="lead">MEDIOS</p>
-                    <p class="lead">Las imagenes que se subiran a la aplicación no tendran datos de ubucación de los 
-                      usuarios.</p>
-                      <p class="lead">UBICACION</p>
-                      <p class="lead">La empresa se encuentra en la ciudad de Asunción en la república del Paraguay.</p>
-                      
-                      <p class="lead">Proveedores de servicio</p>
-                      <p class="lead">Estamos trabajando con la tecnologia de Flutter y fireBase.</p>
+                    <p class="lead">Las imagenes que se subiran a la aplicación no tendran datos de ubucación de los
+                        usuarios.</p>
+                    <p class="lead">UBICACION</p>
+                    <p class="lead">La empresa se encuentra en la ciudad de Asunción en la república del Paraguay.
+                    </p>
 
-                      <p class="lead">Temas Generales</p>
-                      <p class="lead">Esta app está dirigida a personas mayores de edad que desean adquirir el servicio</p>
+                    <p class="lead">Proveedores de servicio</p>
+                    <p class="lead">Estamos trabajando con la tecnologia de Flutter y fireBase.</p>
+
+                    <p class="lead">Temas Generales</p>
+                    <p class="lead">Esta app está dirigida a personas mayores de edad que desean adquirir el servicio
+                    </p>
 
 
 
                 </div>
-                <p class="lead">And an even wittier subheading.</p>
-                <div class="bg-body-tertiary shadow-sm mx-auto"
-                    style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
+
             </div>
 
         </div>
@@ -248,7 +248,7 @@
     </main>
 
     <footer class="container py-5">
-        
+
     </footer>
 
 
