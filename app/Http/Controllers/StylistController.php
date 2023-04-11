@@ -56,15 +56,15 @@ class StylistController extends Controller
     //delete post
     public function destroy($id)
     {
-        $client = Stylist::find($id);
+        $stylist = Stylist::find($id);
 
 
         // $client->comments()->delete();
         // $client->likes()->delete();
-        $client->delete();
+        $stylist->delete();
 
         return response([
-            'message' => 'Client deleted.'
+            'message' => 'stylist deleted.'
         ], 200);
     }
 }
