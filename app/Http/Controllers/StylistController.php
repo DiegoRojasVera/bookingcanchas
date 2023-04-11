@@ -22,20 +22,25 @@ class StylistController extends Controller
 
         $attrs = $request->validate([
             'name' => 'required|string',
-          
+            'photo' => 'string',
             'phone' => 'required|string',
             'score' => 'string',
 
         ]);
 
         //create user
-        $user = Stylist::create([
+        $stylist = Stylist::create([
             'name' => $attrs['name'],
-          
+            'photo' => $attrs['photo'],
             'phone' => $attrs['phone'],
             'score' => $attrs['score'],
 
         ]);
+
+        return response([
+            'message' => 'Stylist created.',
+            'Stylist' => $stylist,
+        ], 200);
     }
 
     // get single 

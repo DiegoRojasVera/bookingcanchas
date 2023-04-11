@@ -28,9 +28,10 @@ Route::get('client/{stylist}', 'App\Http\Controllers\ClientController@showAll');
 Route::get('clientid/{id}', 'App\Http\Controllers\ClientController@showallID'); // get all client showallID
 Route::delete('clients/{id}', 'App\Http\Controllers\ClientController@destroy');
 
-Route::get('stylist/{id}', 'App\Http\Controllers\StylistController@show');
-Route::get('stylist', 'App\Http\Controllers\StylistController@index');
-Route::post('stylist', 'App\Http\Controllers\StylistController@register');
+Route::get('stylist/{id}', 'App\Http\Controllers\StylistController@show');//listar uno
+Route::get('stylist', 'App\Http\Controllers\StylistController@index');//listar todo
+Route::post('stylist', 'App\Http\Controllers\StylistController@register');//crearte
+Route::delete('stylist/{id}', 'App\Http\Controllers\StylistController@destroy');
 
 Route::get('service/{id}', 'App\Http\Controllers\ServiceController@show');
 Route::get('service', 'App\Http\Controllers\ServiceController@index');
