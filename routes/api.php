@@ -28,10 +28,16 @@ Route::get('client/{stylist}', 'App\Http\Controllers\ClientController@showAll');
 Route::get('clientid/{id}', 'App\Http\Controllers\ClientController@showallID'); // get all client showallID
 Route::delete('clients/{id}', 'App\Http\Controllers\ClientController@destroy');
 
-Route::get('stylist/{id}', 'App\Http\Controllers\StylistController@show');//listar uno
-Route::get('stylist', 'App\Http\Controllers\StylistController@index');//listar todo
-Route::post('stylist', 'App\Http\Controllers\StylistController@register');//crearte
+Route::get('stylist/{id}', 'App\Http\Controllers\StylistController@show'); //listar uno
+Route::get('stylist', 'App\Http\Controllers\StylistController@index'); //listar todo
+Route::post('stylist', 'App\Http\Controllers\StylistController@register'); //crearte
 Route::delete('stylist/{id}', 'App\Http\Controllers\StylistController@destroy');
+
+//ServiceStylist
+Route::get('servicestylist', 'App\Http\Controllers\ServiciosStylistController@index'); //listar todo
+Route::get('servicestylist/{id}', 'App\Http\Controllers\ServiciosStylistController@show'); // get single Stylist
+Route::get('servicestylistall/{stylist_id}', 'App\Http\Controllers\ServiciosStylistController@showServicesStylist'); // Listar los servicios que realiza la estilista
+
 
 Route::get('service/{id}', 'App\Http\Controllers\ServiceController@show');
 Route::get('service', 'App\Http\Controllers\ServiceController@index');
@@ -56,9 +62,6 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
   Route::post('/logout', [AuthController::class, 'logout']);
   Route::PUT('/user/{id}', [AuthController::class, 'update']);
   Route::PUT('/updateToken/{id}', [AuthController::class, 'updateToken']);
-
-
-
 
   // Post
   Route::get('/posts', [PostController::class, 'index']); // all posts

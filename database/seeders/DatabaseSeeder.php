@@ -1,16 +1,12 @@
 <?php
 
-use App\Http\Requests\AppointmentRequest;
-use App\Http\Requests\ShowServiceRequest;
+
 use App\Models\Category;
 use App\Models\Client;
 use App\Models\Service;
 use App\Models\Appointment;
 use App\Models\Stylist;
-use App\Models\User;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Carbon;
+
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -88,9 +84,9 @@ class DatabaseSeeder extends Seeder
         $stylist9 = Stylist::create(['name' => 'John', 'photo' => 'stylist4.jpg', 'score' => 3.9]);
         $stylist9->services()->sync([6, 9, 13, 8, 4]);
 
-        
+
         // Cita de Prueba.
-        $client = Client::create(['name' => 'John Doe', 'phone' => '3001594578', 'email' => 'diego@gmail.com','inicio'=>'32131213']);
+        $client = Client::create(['name' => 'John Doe', 'phone' => '3001594578', 'email' => 'diego@gmail.com', 'inicio' => '32131213']);
         $service = $stylist4->services()->inRandomOrder()->first();
         $appointment = new Appointment([
             'dated_at' => '2021-05-20 14:00:00',
@@ -100,7 +96,7 @@ class DatabaseSeeder extends Seeder
         ]);
         $appointment->client()->associate($client);
         $appointment->clientemail()->associate($client);
-        
+
         $appointment->stylist()->associate($stylist4);
         $appointment->service()->associate($service);
         $appointment->save();
