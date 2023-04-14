@@ -21,7 +21,7 @@ class ClientController extends Controller
         return response()
             ->json(Client::where('email', $email)
                 ->with('appointments.stylist', 'appointments.service')
-                ->orderByDesc('inicio', 'DESC')
+                ->orderByDesc('inicio', 'ASC')
                 ->get());
     }
 
