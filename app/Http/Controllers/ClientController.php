@@ -10,7 +10,7 @@ class ClientController extends Controller
 {
     public function index()
     {
-        return response()->json(Client::orderBy('inicio', 'DESC')
+        return response()->json(Client::orderBy('inicio', 'ASC')
             ->with('appointments.stylist', 'appointments.service')
             ->get());
     }
@@ -21,7 +21,7 @@ class ClientController extends Controller
         return response()
             ->json(Client::where('email', $email)
                 ->with('appointments.stylist', 'appointments.service')
-                ->orderBy('inicio', 'ASC')
+                ->orderByDesc('inicio', 'DESC')
                 ->get());
     }
 
