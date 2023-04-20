@@ -34,7 +34,7 @@ class ServicesController extends Controller
 
         return response()->json($categories, 200);
     }
-
+   
 
     /**
      * Agendar cita.
@@ -60,11 +60,12 @@ class ServicesController extends Controller
 
 
             $appointment = new Appointment([
-                'dated_at' => Carbon::createFromFormat('Y-m-d H:i', $request->get('dated_at')),
-                'finish_at' => Carbon::createFromFormat('Y-m-d H:i', $request->get('dated_at'))->addMinutes(60),
+                'dated_at' => Carbon::createFromFormat('Y-m-d H:i:s', $request->get('dated_at'))->setSeconds(0)->setMilliseconds(0),
+                'finish_at' => Carbon::createFromFormat('Y-m-d H:i:s', $request->get('dated_at'))->addMinutes(60)->subSeconds(1)->setSeconds(0)->setMilliseconds(0),
                 'duration' => 60, // Todos los servicios se agendan a una hora.
                 'total' => $service->price,
             ]);
+            
             $appointment->client()->associate($client);
             $appointment->clientemail()->associate($client);
             $appointment->stylist()->associate($stylist);
@@ -117,7 +118,7 @@ class ServicesController extends Controller
             // $stylist->photo = url("storage/stylists/{$stylist->photo}");
             $stylist->photo = url("{$stylist->photo}");
             $stylist->locked_dates = $stylist->appointments->map(function ($appointment) {
-                return $appointment->dated_at->format('Y-m-d H:i');
+                return $appointment->dated_at->format('Y-m-d H:i:s');
             });
 
             unset($stylist->pivot);
@@ -136,28 +137,29 @@ class ServicesController extends Controller
         ], 200);
     }
 
-    // delete a appointment
-    public function destroy($id)
-    {
-        $appointment = Appointment::find($id);
-
-        if (!$appointment) {
-            return response([
-                'message' => 'Appoint not found.'
-            ], 403);
-        }
-
+     // delete a appointment
+     public function destroy($id)
+     {
+         $appointment = Appointment::find($id);
+ 
+         if(!$appointment)
+         {
+             return response([
+                 'message' => 'Appoint not found.'
+             ], 403);
+         }
+ 
         //  if($appointment->user_id != auth()->user()->id)
         //  {
         //      return response([
         //          'message' => 'Permission denied.'
         //      ], 403);
         //  }
-
-        $appointment->delete();
-
-        return response([
-            'message' => 'appointment deleted.'
-        ], 200);
-    }
+ 
+         $appointment->delete();
+ 
+         return response([
+             'message' => 'appointment deleted.'
+         ], 200);
+     }
 }
