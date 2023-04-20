@@ -7,7 +7,14 @@ use App\Models\Stylist;
 
 
 class ClientController extends Controller
+
 {
+
+    public function Prueba()
+    {
+        echo now();
+        return now();
+    }
     public function index()
     {
         return response()->json(Client::orderBy('inicio', 'DESC')

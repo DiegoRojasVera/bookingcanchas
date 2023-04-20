@@ -21,6 +21,9 @@ Route::get('appointment/{id}', 'App\Http\Controllers\ServicesController@showAppo
 Route::get('appointment', 'App\Http\Controllers\ServicesController@showAppointment');
 Route::delete('appointment/{id}', 'App\Http\Controllers\ServicesController@destroy');
 
+
+Route::get('Prueba', 'App\Http\Controllers\ClientController@Prueba');
+
 Route::get('clients', 'App\Http\Controllers\ClientController@index');
 Route::get('clientsStylist/{stylist}', 'App\Http\Controllers\ClientController@showStylist');
 Route::get('clients/{email}', 'App\Http\Controllers\ClientController@show'); // get single client
