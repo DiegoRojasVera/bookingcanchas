@@ -34,7 +34,7 @@ class ServicesController extends Controller
 
         return response()->json($categories, 200);
     }
-   
+
 
     /**
      * Agendar cita.
@@ -66,6 +66,7 @@ class ServicesController extends Controller
                 'total' => $service->price,
             ]);
             
+
             $appointment->client()->associate($client);
             $appointment->clientemail()->associate($client);
             $appointment->stylist()->associate($stylist);
@@ -137,29 +138,28 @@ class ServicesController extends Controller
         ], 200);
     }
 
-     // delete a appointment
-     public function destroy($id)
-     {
-         $appointment = Appointment::find($id);
- 
-         if(!$appointment)
-         {
-             return response([
-                 'message' => 'Appoint not found.'
-             ], 403);
-         }
- 
+    // delete a appointment
+    public function destroy($id)
+    {
+        $appointment = Appointment::find($id);
+
+        if (!$appointment) {
+            return response([
+                'message' => 'Appoint not found.'
+            ], 403);
+        }
+
         //  if($appointment->user_id != auth()->user()->id)
         //  {
         //      return response([
         //          'message' => 'Permission denied.'
         //      ], 403);
         //  }
- 
-         $appointment->delete();
- 
-         return response([
-             'message' => 'appointment deleted.'
-         ], 200);
-     }
+
+        $appointment->delete();
+
+        return response([
+            'message' => 'appointment deleted.'
+        ], 200);
+    }
 }
