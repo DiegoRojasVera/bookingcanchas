@@ -60,12 +60,13 @@ class ServicesController extends Controller
 
 
             $appointment = new Appointment([
-                'dated_at' => Carbon::createFromFormat('Y-m-d H:i:s', $request->get('dated_at'))->setSeconds(0)->setMilliseconds(0),
-                'finish_at' => Carbon::createFromFormat('Y-m-d H:i:s', $request->get('dated_at'))->addMinutes(60)->subSeconds(1)->setSeconds(0)->setMilliseconds(0),
+                'dated_at' => Carbon::createFromFormat('Y-m-d H:i:s', $request->get('dated_at'))->second(0),
+                'finish_at' => Carbon::createFromFormat('Y-m-d H:i:s', $request->get('dated_at'))->addMinutes(60)->subSeconds(1)->second(0),
+
                 'duration' => 60, // Todos los servicios se agendan a una hora.
                 'total' => $service->price,
             ]);
-            
+
 
             $appointment->client()->associate($client);
             $appointment->clientemail()->associate($client);
