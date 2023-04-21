@@ -27,7 +27,6 @@ class ServicesController extends Controller
             ->with('services')
             ->get()
             ->map(function ($category) {
-                //$category->photo = url("storage/categories/{$category->photo}");
                 $category->photo = url("{$category->photo}");
                 return $category;
             });
@@ -53,6 +52,7 @@ class ServicesController extends Controller
                 'inicio' => $request->input('client.inicio'),
                 'stylist' => $request->input('client.stylist'),
                 'service' => $request->input('client.service'),
+                'mensaje' => $request->input('client.service'),
             ]);
 
             $stylist = Stylist::findOrFail($request->get('stylist_id'));

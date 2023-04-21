@@ -23,14 +23,28 @@ class ClientController extends Controller
     }
 
     // get single client
+    // public function show($email)
+    // {
+    //     return response()
+    //         ->json(Client::where('email', $email)
+    //             ->with('appointments.stylist', 'appointments.service')
+    //             ->orderByDesc('inicio', 'DESC')
+    //             ->get());
+    // }
+
+
     public function show($email)
-    {
-        return response()
-            ->json(Client::where('email', $email)
-                ->with('appointments.stylist', 'appointments.service')
-                ->orderByDesc('inicio', 'DESC')
-                ->get());
-    }
+{
+    $today = date('Y-m-d'); // get today's date in the format used by your database
+    
+    return response()
+        ->json(Client::where('email', $email)
+            ->with(['appointments' => function ($query) use ($today) {
+                $query->where('inicio', '>=', $today)
+                      ->orderBy('inicio', 'ASC');
+            }, 'appointments.stylist', 'appointments.service'])
+            ->get());
+}
 
     public function showStylist($stylist)
     {

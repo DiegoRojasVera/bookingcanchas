@@ -22,6 +22,7 @@ class Client extends Model
         'inicio',
         'stylist',
         'service',
+        'mensaje',
     ];
 
     protected $hidden = [
