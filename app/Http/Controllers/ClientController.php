@@ -22,38 +22,25 @@ class ClientController extends Controller
             ->get());
     }
 
-    // get single client
-    // public function show($email)
-    // {
-    //     return response()
-    //         ->json(Client::where('email', $email)
-    //             ->with('appointments.stylist', 'appointments.service')
-    //             ->orderByDesc('inicio', 'DESC')
-    //             ->get());
-    // }
-
-
-    public function show($email)
-{
-    $today = date('Y-m-d'); // get today's date in the format used by your database
-    
-    return response()
-        ->json(Client::where('email', $email)
-            ->with(['appointments' => function ($query) use ($today) {
-                $query->where('inicio', '>=', $today)
-                      ->orderBy('inicio', 'ASC');
-            }, 'appointments.stylist', 'appointments.service'])
-            ->get());
-}
 
     public function showStylist($stylist)
     {
         return response()
             ->json(Client::where('stylist', $stylist)
-            //    ->with('appointments.stylist', 'appointments.service')
+                //    ->with('appointments.stylist', 'appointments.service')
                 ->orderByDesc('inicio', 'DESC')
                 ->get());
     }
+    // get single client
+    public function show($email)
+    {
+        return response()
+            ->json(Client::where('email', $email)
+                ->with('appointments.stylist', 'appointments.service')
+                ->orderByDesc('inicio', 'DESC')
+                ->get());
+    }
+
     // get single client para ver servicio cada uno se busca por stylista
     public function showall($idservicio)
     {
@@ -73,6 +60,15 @@ class ClientController extends Controller
                 ->orderByDesc('inicio', 'DESC')
                 ->get());
     }
+     // get single client para ver servicio cada uno
+     public function showallIDPRueba($id)
+     {
+         return response()
+             ->json(Client::where('id', $id)
+                 //              ->with('appointments.stylist')
+                 ->orderByDesc('inicio', 'DESC')
+                 ->get());
+     }
 
 
     //delete post
