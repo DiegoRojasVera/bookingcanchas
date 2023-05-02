@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Ratingbar;
 use App\Models\Stylist;
 
-class RatingbarController extends Controller
+class RatingbarnewController extends Controller
 {
     public function store(Request $request)
     {
@@ -18,7 +18,7 @@ class RatingbarController extends Controller
 
         $stylist = Stylist::firstOrCreate(['name' => $validatedData['stylist']]);
 
-        $ratingbar = new Ratingbar([
+        $ratingbar = new Ratingbarnew([
             'calificacion' => $validatedData['calificacion'],
             'comentarios' => $validatedData['comentarios']
         ]);
