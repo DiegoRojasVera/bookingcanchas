@@ -9,11 +9,8 @@ class Ratingbarnew extends Model
 {
     use HasFactory;
 
-    #protected $table = 'ratingbar';
-
     protected $fillable = [
         'calificacion',
-        'stylist',
         'comentarios',
     ];
 

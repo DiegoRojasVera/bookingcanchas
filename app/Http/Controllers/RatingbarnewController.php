@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Ratingbar;
+use App\Models\Ratingbarnew;
 use App\Models\Stylist;
 
 class RatingbarnewController extends Controller
@@ -47,19 +47,4 @@ class RatingbarnewController extends Controller
             'average_rating' => $averageRating
         ], 200);
     }
-
-
-    
-#    public function index($stylistName)
- #   {
-#        $stylist = Stylist::where('name', $stylistName)->first();
-
- #       if (!$stylist) {
-  #          return response(['message' => 'Stylist not found.'], 403);
-#        }
-
- #       $ratings = $stylist->ratings;
-#
- #       return response(['ratings' => $ratings], 200);
-  #  }
 }
