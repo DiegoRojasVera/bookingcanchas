@@ -31,6 +31,17 @@ class Stylist extends Model
     {
         return $this->belongsToMany(Service::class);
     }
+
+    public function ratings()
+    {
+        return $this->hasMany(Ratingbar::class, 'stylist', 'name');
+    }
+
+    public function averageRating()
+    {
+        return $this->ratings()->avg('calificacion');
+    }
 }
+
 
 

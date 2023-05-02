@@ -17,6 +17,8 @@ Route::get('services', 'App\Http\Controllers\ServicesController@index');
 Route::post('services', 'App\Http\Controllers\ServicesController@store');
 Route::get('services/{id}', 'App\Http\Controllers\ServicesController@show');
 
+Route::post('ratingbar', 'App\Http\Controllers\ratingbarController@store');// carga de los datos 
+
 Route::get('appointment/{id}', 'App\Http\Controllers\ServicesController@showAppointment');
 Route::get('appointment', 'App\Http\Controllers\ServicesController@showAppointment');
 Route::delete('appointment/{id}', 'App\Http\Controllers\ServicesController@destroy');
