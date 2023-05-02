@@ -47,14 +47,9 @@ class RatingbarController extends Controller
             'average_rating' => $averageRating
         ], 200);
     }
-    public function index()
-{
-    $ratingbars = Ratingbar::all();
-    return response()->json($ratingbars);
-}
 
 
-
+    
 #    public function index($stylistName)
  #   {
 #        $stylist = Stylist::where('name', $stylistName)->first();
