@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Puntuacion;
+use Illuminate\Support\Facades\DB;
+
 
 class PuntuacionController extends Controller
 {
