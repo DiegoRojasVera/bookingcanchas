@@ -18,6 +18,7 @@ Route::post('services', 'App\Http\Controllers\ServicesController@store');
 Route::get('services/{id}', 'App\Http\Controllers\ServicesController@show');
 
 Route::post('ratingbar', 'App\Http\Controllers\ratingbarController@store');// carga de los datos 
+Route::get('ratingbarlist', 'App\Http\Controllers\ratingbarController@index');// listar
 
 Route::get('appointment/{id}', 'App\Http\Controllers\ServicesController@showAppointment');
 Route::get('appointment', 'App\Http\Controllers\ServicesController@showAppointment');
