@@ -47,16 +47,24 @@ class RatingbarController extends Controller
             'average_rating' => $averageRating
         ], 200);
     }
-    public function index($stylistName)
-    {
-        $stylist = Stylist::where('name', $stylistName)->first();
+    public function index()
+{
+    $ratingbars = Ratingbar::all();
+    return response()->json($ratingbars);
+}
 
-        if (!$stylist) {
-            return response(['message' => 'Stylist not found.'], 403);
-        }
 
-        $ratings = $stylist->ratings;
 
-        return response(['ratings' => $ratings], 200);
-    }
+#    public function index($stylistName)
+ #   {
+#        $stylist = Stylist::where('name', $stylistName)->first();
+
+ #       if (!$stylist) {
+  #          return response(['message' => 'Stylist not found.'], 403);
+#        }
+
+ #       $ratings = $stylist->ratings;
+#
+ #       return response(['ratings' => $ratings], 200);
+  #  }
 }
