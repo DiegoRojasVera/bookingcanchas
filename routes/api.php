@@ -15,12 +15,14 @@ Route::post('/login', [AuthController::class, 'login']);
 //Bookin Router
 Route::get('services', 'App\Http\Controllers\ServicesController@index');
 Route::post('services', 'App\Http\Controllers\ServicesController@store');
-Route::get('services/{id}', 'App\Http\Controllers\ServicesController@show');
+Route::get('services/{id}', 'App\Http\Controllers\ServicesController@show'); 
 
-Route::post('ratingbar', 'App\Http\Controllers\PuntuacionController@store');// Carga de los datos
-Route::get('ratingbar/{stylist}', 'App\Http\Controllers\PuntuacionController@promedioPorStylist'); // Promedio de calificaciones por stylist
-Route::get('ratingbar', 'App\Http\Controllers\PuntuacionController@index'); // Promedio de calificaciones por stylist
-Route::get('ratingbar/{stylistlistar}', 'App\Http\Controllers\PuntuacionController@listarPorStylist'); 
+
+Route::post('/puntuacion', 'App\Http\Controllers\PuntuacionController@store');// Guardar una nueva puntuación
+Route::get('/puntuacion/promedio/{stylist}', 'App\Http\Controllers\PuntuacionController@promedioPorStylist');// Obtener el promedio de puntuaciones para un stylist en particular
+Route::get('/puntuacion', 'App\Http\Controllers\PuntuacionController@index');// Listar todas las puntuaciones
+Route::get('/puntuacion/stylist/{stylist}', 'App\Http\Controllers\PuntuacionController@listarPorStylist');// Listar todas las puntuaciones para un stylist en particular
+
 
 
 Route::get('appointment/{id}', 'App\Http\Controllers\ServicesController@showAppointment');
