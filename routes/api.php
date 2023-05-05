@@ -20,6 +20,7 @@ Route::get('services/{id}', 'App\Http\Controllers\ServicesController@show');
 Route::post('ratingbar', 'App\Http\Controllers\PuntuacionController@store');// Carga de los datos
 Route::get('ratingbar/{stylist}', 'App\Http\Controllers\PuntuacionController@promedioPorStylist'); // Promedio de calificaciones por stylist
 Route::get('ratingbar', 'App\Http\Controllers\PuntuacionController@index'); // Promedio de calificaciones por stylist
+Route::get('ratingbar/{stylistlistar}', 'App\Http\Controllers\PuntuacionController@listarPorStylist'); 
 
 
 Route::get('appointment/{id}', 'App\Http\Controllers\ServicesController@showAppointment');
