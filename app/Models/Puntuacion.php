@@ -14,6 +14,8 @@ class Puntuacion extends Model
     protected $fillable = [
         'calificacion',
         'stylist',
-        'comentario'
+        'comentario',
+        'nombre'
+
     ];
 }
