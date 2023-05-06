@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Puntuacion;
 use Illuminate\Support\Facades\DB;
 use App\Models\Client;
+use App\Models\Service;
 
 
 class PuntuacionController extends Controller
@@ -53,11 +54,19 @@ class PuntuacionController extends Controller
 
     public function showStylistsAndServices($name)
     {
-        $stylistsAndServices = Client::select('stylist', 'service','stylistName','name')
+        $stylistsAndServices = Client::select('stylist', 'service', 'stylistName', 'name')
             ->where('name', $name)
-            ->groupBy('stylist', 'service','stylistName','name')
+            ->groupBy('stylist', 'service', 'stylistName', 'name')
             ->get();
 
         return response()->json($stylistsAndServices);
+    }
+
+    //saber el nombre del stylist que nos da con la id
+
+    public function getServiceName($id)
+    {
+        $service = Service::find($id);
+        return response()->json(['name' => $service->name]);
     }
 }

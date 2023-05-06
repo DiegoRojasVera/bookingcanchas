@@ -23,6 +23,8 @@ Route::get('/puntuacion/promedio/{stylist}', 'App\Http\Controllers\PuntuacionCon
 Route::get('/puntuacion', 'App\Http\Controllers\PuntuacionController@index'); // Listar todas las puntuaciones
 Route::get('/puntuacion/stylist/{stylist}', 'App\Http\Controllers\PuntuacionController@listarPorStylist'); // Listar todas las puntuaciones para un stylist en particular
 Route::get('/clientes/{name}/stylists-services', 'App\Http\Controllers\PuntuacionController@showStylistsAndServices');
+Route::get('/services/{id}/name',  'App\Http\Controllers\PuntuacionController@getServiceName');
+
 
 
 
