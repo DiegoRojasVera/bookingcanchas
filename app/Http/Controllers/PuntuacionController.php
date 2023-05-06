@@ -48,9 +48,4 @@ class PuntuacionController extends Controller
         $puntuaciones = Puntuacion::where('stylist', $stylist)->get();
         return response()->json($puntuaciones);
     }
-    public function listarPorStylistYService($stylist, $service)
-    {
-        $puntuaciones = Puntuacion::where('stylist', $stylist)->where('service', $service)->get();
-        return response()->json($puntuaciones);
-    }
 }

@@ -60,15 +60,15 @@ class ClientController extends Controller
                 ->orderByDesc('inicio', 'DESC')
                 ->get());
     }
-     // get single client para ver servicio cada uno
-     public function showallIDPRueba($id)
-     {
-         return response()
-             ->json(Client::where('id', $id)
-                 //              ->with('appointments.stylist')
-                 ->orderByDesc('inicio', 'DESC')
-                 ->get());
-     }
+    // get single client para ver servicio cada uno
+    public function showallIDPRueba($id)
+    {
+        return response()
+            ->json(Client::where('id', $id)
+                //              ->with('appointments.stylist')
+                ->orderByDesc('inicio', 'DESC')
+                ->get());
+    }
 
 
     //delete post
@@ -84,5 +84,14 @@ class ClientController extends Controller
         return response([
             'message' => 'Client deleted.'
         ], 200);
+    }
+    //vamos a listar y saber si fue atenda por el stylis
+    public function filtrarPorStylistYService($stylist, $service)
+    {
+        $clientes = Client::where('stylist', $stylist)
+            ->where('service', $service)
+            ->get();
+
+        return response()->json($clientes);
     }
 }
