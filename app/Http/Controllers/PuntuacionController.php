@@ -49,18 +49,15 @@ class PuntuacionController extends Controller
         $puntuaciones = Puntuacion::where('stylist', $stylist)->get();
         return response()->json($puntuaciones);
     }
-     //vamos a listar y saber si fue atenda por el stylis
+    //vamos a listar y saber si fue atenda por el stylis
 
-     public function showStylistsAndServices($name)
-{
-    $stylistsAndServices = DB::table('clients')
-                        ->select('stylist', 'service')
-                        ->where('name', $name)
-                        ->groupBy('stylist', 'service')
-                        ->get();
+    public function showStylistsAndServices($name)
+    {
+        $stylistsAndServices = Client::select('stylist', 'service')
+            ->where('name', $name)
+            ->groupBy('stylist', 'service')
+            ->get();
 
-    return view('stylists-and-services', ['stylistsAndServices' => $stylistsAndServices]);
-}
-   
-  
+        return view('stylists-and-services', ['stylistsAndServices' => $stylistsAndServices]);
+    }
 }
