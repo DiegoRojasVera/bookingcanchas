@@ -85,13 +85,4 @@ class ClientController extends Controller
             'message' => 'Client deleted.'
         ], 200);
     }
-    //vamos a listar y saber si fue atenda por el stylis
-    public function filtrarPorStylistYService($stylist, $service)
-    {
-        $clientes = Client::where('stylist', $stylist)
-            ->where('service', $service)
-            ->get();
-
-        return response()->json($clientes);
-    }
 }

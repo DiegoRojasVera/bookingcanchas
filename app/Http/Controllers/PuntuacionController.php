@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Puntuacion;
 use Illuminate\Support\Facades\DB;
+use App\Models\Client;
 
 
 class PuntuacionController extends Controller
@@ -48,4 +49,14 @@ class PuntuacionController extends Controller
         $puntuaciones = Puntuacion::where('stylist', $stylist)->get();
         return response()->json($puntuaciones);
     }
+     //vamos a listar y saber si fue atenda por el stylis
+     public function filtrarPorStylistYService($stylist, $service)
+     {
+         $clientes = Client::where('stylist', $stylist)
+             ->where('service', $service)
+             ->get();
+ 
+         return response()->json($clientes);
+     }
+  
 }
