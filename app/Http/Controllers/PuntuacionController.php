@@ -16,7 +16,7 @@ class PuntuacionController extends Controller
         $puntuacion->calificacion = $request->calificacion;
         $puntuacion->stylist = $request->stylist;
         $puntuacion->comentario = $request->comentario;
-        $puntuacion->nombre = $request->comentario;
+        $puntuacion->nombre = $request->nombre;
 
         $puntuacion->save();
 
