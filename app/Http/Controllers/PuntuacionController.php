@@ -50,13 +50,17 @@ class PuntuacionController extends Controller
         return response()->json($puntuaciones);
     }
      //vamos a listar y saber si fue atenda por el stylis
-     public function filtrarPorStylistYService($stylist, $service)
-     {
-         $clientes = Client::where('stylist', $stylist)
-             ->where('service', $service)
-             ->get();
- 
-         return response()->json($clientes);
-     }
+
+     public function showStylistsAndServices($name)
+{
+    $stylistsAndServices = DB::table('clients')
+                        ->select('stylist', 'service')
+                        ->where('name', $name)
+                        ->groupBy('stylist', 'service')
+                        ->get();
+
+    return view('stylists-and-services', ['stylistsAndServices' => $stylistsAndServices]);
+}
+   
   
 }
