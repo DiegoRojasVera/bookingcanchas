@@ -22,7 +22,7 @@ Route::post('/puntuacion', 'App\Http\Controllers\PuntuacionController@store'); /
 Route::get('/puntuacion/promedio/{stylist}', 'App\Http\Controllers\PuntuacionController@promedioPorStylist'); // Obtener el promedio de puntuaciones para un stylist en particular
 Route::get('/puntuacion', 'App\Http\Controllers\PuntuacionController@index'); // Listar todas las puntuaciones
 Route::get('/puntuacion/stylist/{stylist}', 'App\Http\Controllers\PuntuacionController@listarPorStylist'); // Listar todas las puntuaciones para un stylist en particular
-Route::get('/clientes/filtrar/{stylist}/{service}', 'ClientController@filtrarPorStylistYService');
+Route::get('clientes/filtrar/{stylist}/{service}', 'ClientController@filtrarPorStylistYService');
 
 
 
