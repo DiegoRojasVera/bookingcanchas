@@ -52,12 +52,12 @@ class PuntuacionController extends Controller
     //vamos a listar y saber si fue atenda por el stylis
 
     public function showStylistsAndServices($name)
-    {
-        $stylistsAndServices = Client::select('stylist', 'service')
-            ->where('name', $name)
-            ->groupBy('stylist', 'service')
-            ->get();
+{
+    $stylistsAndServices = Client::select('stylist', 'service')
+        ->where('name', $name)
+        ->groupBy('stylist', 'service')
+        ->get();
 
-        return view('stylists-and-services', ['stylistsAndServices' => $stylistsAndServices]);
-    }
+    return response()->json($stylistsAndServices);
+}
 }
