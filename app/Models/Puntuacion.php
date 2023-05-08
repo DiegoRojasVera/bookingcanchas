@@ -15,7 +15,8 @@ class Puntuacion extends Model
         'calificacion',
         'stylist',
         'comentario',
-        'nombre'
+        'nombre',
+        'photo'
 
     ];
 }

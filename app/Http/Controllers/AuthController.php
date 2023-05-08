@@ -119,7 +119,7 @@ class AuthController extends Controller
         // for now skip for post image
 
         return response([
-            'message' => 'Post updated.',
+            'message' => 'Se actualizaron los datos.',
             'user' => $user
         ], 200);
     }
