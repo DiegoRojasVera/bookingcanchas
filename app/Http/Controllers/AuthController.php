@@ -103,7 +103,7 @@ class AuthController extends Controller
             'fechaN' => 'required|string',
             'admin' => 'string',
             'tokenFB' => 'string',
-            
+
 
         ]);
 
@@ -130,7 +130,7 @@ class AuthController extends Controller
     {
 
         return response()->json(User::orderBy('id')
-            
+
             ->get());
     }
 
