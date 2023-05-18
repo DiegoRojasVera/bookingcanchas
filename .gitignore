@@ -6,7 +6,7 @@
 #/vendor
 #Procfile
 #storage
-.env
+#.env
 .env.backup
 .githeroku
 .phpunit.result.cache
